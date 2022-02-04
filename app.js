@@ -44,12 +44,33 @@ app.post('/create', (req,res) => {
   });
 });
 
-/*
-// simple get 
-app.get('/', (req,res) => {
-  res.end('Hello World!');
+//update
+//curl -s -X PUT http://localhost:8080/update/1 -H 'Content-type:application/json' -d '{"name":"updated name"}'
+app.put(`/update/:id`, (req,res) => {
+    console.log(`\nupdate - UPDATE`);
+    //id needed and what to update it with
+    let item = {name : req.body.name, _id: req.params.id}
+    //curly brackets needed to specify what it is going to update and then item has the values with the same error catch at the end
+    db.update({_id: req.params.id}, item, (err, item) => 
+    {
+        if (err) res.send(err);
+    res.status(201).send(`id:${item}`);
+    console.log(`Updated item:`)
+    })
+})
+//delete
+//-X needed for delete and update curls
+//curl -s -X DELETE http://localhost:8080/delete/1 
+app.delete('/delete/:id', (req,res) => {
+    console.log(`\ndelete - DELETE`);
+    let item = {_id: req.params.id}
+    db.remove(item, (err, item) => 
+    {
+    if (err) res.send(err);
+    res.status(201).send(`Item has been deleted`);
+    console.log(`Deleted item:}`)
+  });
 });
-*/
 
 // read (get)
 app.get('/read', (req,res) => {
