@@ -1,0 +1,26 @@
+{
+  "name": "html-day-5---express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanWh78/HTML-Day-5---Express.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanWh78/HTML-Day-5---Express/issues"
+  },
+  "homepage": "https://github.com/JonathanWh78/HTML-Day-5---Express#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "nedb": "^1.8.0"
+  }
+}
